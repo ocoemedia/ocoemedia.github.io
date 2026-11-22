@@ -4,9 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oliver Coe Media | Web Design & Commercial Photography</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <div class="bg-effects">
+        <div class="tiger-stripes"></div>
+        <div class="grain-overlay"></div>
+    </div>
 
     <header class="navbar">
         <div class="logo">OLIVER COE <span>MEDIA</span></div>
@@ -30,7 +38,7 @@
 
     <section id="work" class="section">
         <h2>Selected Photography</h2>
-        <p class="section-sub">Commercial, automotive, and editorial visuals shot on location.</p>
+        <p class="section-sub">Commercial, automotive, and editorial visuals shot on location. Click any frame to expand.</p>
         <div class="photo-grid">
             <div class="photo-card"><img src="ojc_photostory_yellow%20plane.jpg" alt="Yellow vintage aircraft"></div>
             <div class="photo-card"><img src="ojc_moto_indian%20logo.jpg" alt="Indian Motorcycle chrome detail"></div>
@@ -85,7 +93,7 @@
     <section id="contact" class="section contact-section">
         <h2>Ready to Upgrade Your Brand?</h2>
         <p class="section-sub">Send over a quick note about your business and what you need. I'll get back to you within 24 hours.</p>
-        <form class="contact-form" action="https://formsubmit.co/11bluepanther11@gmail.com" method="POST">
+        <form class="contact-form" action="https://formsubmit.co" method="POST">
             <input type="text" name="name" placeholder="Your Name" required>
             <input type="email" name="email" placeholder="Your Email" required>
             <input type="text" name="business" placeholder="Business Name / Instagram (Optional)">
@@ -97,6 +105,34 @@
     <footer>
         <p>&copy; 2026 Oliver Coe Media. Built from scratch.</p>
     </footer>
+
+    <!-- Fullscreen Photo Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="Expanded photography preview">
+    </div>
+
+    <script>
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeBtn = document.querySelector('.lightbox-close');
+
+        document.querySelectorAll('.photo-card img').forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                lightbox.classList.add('active');
+            });
+        });
+
+        closeBtn.addEventListener('click', () => lightbox.classList.remove('active'));
+        lightbox.addEventListener('click', (e) => {
+            if (e.target !== lightboxImg) lightbox.classList.remove('active');
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') lightbox.classList.remove('active');
+        });
+    </script>
 
 </body>
 </html>

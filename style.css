@@ -407,10 +407,28 @@ footer {
 
 /* Mobile Adjustments */
 @media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2.35rem;
+    .navbar {
+        padding: 1rem 5%;
+    }
+    .logo {
+        font-size: 1.05rem;
+    }
+    nav a {
+        margin-left: 0;
     }
     nav a:not(.btn-nav) {
         display: none;
     }
+    .btn-nav {
+        padding: 0.5rem 0.9rem;
+        font-size: 0.85rem;
+        white-space: nowrap;
+    }
+    .hero {
+        padding: 5.5rem 6% 4.5rem;
+    }
+    .hero h1 {
+        font-size: 2.25rem;
+    }
 }
+

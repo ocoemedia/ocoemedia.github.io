@@ -1,8 +1,9 @@
+@import url('https://googleapis.com');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 html {
@@ -10,8 +11,9 @@ html {
 }
 
 body {
-    background-color: #09072e;
+    background-color: #080626;
     color: #f3f4f6;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     line-height: 1.6;
     position: relative;
     overflow-x: hidden;
@@ -19,33 +21,36 @@ body {
 
 /* Display Typography */
 h1, h2, h3, .logo {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Space Grotesk', sans-serif !important;
+    letter-spacing: -0.02em;
 }
 
-/* Background Effects: #130E61 Tiger Stripes & Film Grain */
+/* Lightweight Background Effects: Zero-Lag Tiger Stripes & Static Grain */
 .bg-effects {
     position: fixed;
     inset: 0;
     pointer-events: none;
     z-index: -1;
+    will-change: transform;
 }
 
 .tiger-stripes {
     position: absolute;
     inset: 0;
-    opacity: 0.42;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' width='320' height='320' viewBox='0 0 320 320'%3E%3Cpath d='M-20 30 Q 80 10, 150 45 T 340 25 L 340 50 Q 230 70, 145 35 T -20 55 Z' fill='%23130E61'/%3E%3Cpath d='M-20 110 Q 95 140, 180 105 T 340 125 L 340 155 Q 210 130, 120 160 T -20 135 Z' fill='%231b1485'/%3E%3Cpath d='M-20 205 Q 70 180, 165 215 T 340 195 L 340 220 Q 240 245, 140 205 T -20 230 Z' fill='%23130E61'/%3E%3Cpath d='M-20 280 Q 110 305, 200 275 T 340 290 L 340 315 Q 220 290, 115 315 T -20 305 Z' fill='%231b1485'/%3E%3C/svg%3E");
-    background-size: 360px 360px;
-    /* Fades stripes smoothly out in the middle so content stays crisp */
-    -webkit-mask-image: radial-gradient(ellipse at center, transparent 22%, rgba(0, 0, 0, 0.45) 58%, black 100%);
-    mask-image: radial-gradient(ellipse at center, transparent 22%, rgba(0, 0, 0, 0.45) 58%, black 100%);
+    opacity: 0.65;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' width='360' height='360' viewBox='0 0 360 360'%3E%3Cpath d='M-20 35 Q 90 10, 175 50 T 380 25 L 380 58 Q 250 82, 165 40 T -20 65 Z' fill='%2318127a'/%3E%3Cpath d='M-20 125 Q 110 160, 205 115 T 380 140 L 380 175 Q 230 145, 135 180 T -20 155 Z' fill='%2321199e'/%3E%3Cpath d='M-20 225 Q 85 195, 185 235 T 380 210 L 380 242 Q 260 270, 155 225 T -20 255 Z' fill='%2318127a'/%3E%3Cpath d='M-20 310 Q 120 340, 225 300 T 380 320 L 380 350 Q 240 320, 130 350 T -20 338 Z' fill='%2321199e'/%3E%3C/svg%3E");
+    background-size: 380px 380px;
+    -webkit-mask-image: radial-gradient(ellipse at center, transparent 28%, rgba(0, 0, 0, 0.45) 62%, black 100%);
+    mask-image: radial-gradient(ellipse at center, transparent 28%, rgba(0, 0, 0, 0.45) 62%, black 100%);
 }
 
 .grain-overlay {
     position: absolute;
     inset: 0;
-    opacity: 0.065;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://w3.org'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.045;
+    background-image: radial-gradient(#ffffff 0.75px, transparent 0.75px), radial-gradient(#a5b4fc 0.75px, #080626 0.75px);
+    background-size: 24px 24px;
+    background-position: 0 0, 12px 12px;
 }
 
 /* Navbar */
@@ -54,18 +59,18 @@ h1, h2, h3, .logo {
     justify-content: space-between;
     align-items: center;
     padding: 1.4rem 8%;
-    background: rgba(9, 7, 46, 0.82);
-    backdrop-filter: blur(12px);
+    background: rgba(8, 6, 38, 0.88);
+    backdrop-filter: blur(8px);
     position: sticky;
     top: 0;
     z-index: 100;
-    border-bottom: 1px solid rgba(99, 102, 241, 0.18);
+    border-bottom: 1px solid rgba(99, 102, 241, 0.2);
 }
 
 .logo {
-    font-size: 1.25rem;
-    font-weight: 800;
-    letter-spacing: 1px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
     color: #ffffff;
 }
 
@@ -102,7 +107,7 @@ nav a:hover {
 .hero {
     padding: 7.5rem 8% 6.5rem;
     text-align: center;
-    background: radial-gradient(circle at top, rgba(19, 14, 97, 0.55) 0%, transparent 72%);
+    background: radial-gradient(circle at top, rgba(24, 18, 122, 0.45) 0%, transparent 72%);
 }
 
 .hero-content {
@@ -111,11 +116,10 @@ nav a:hover {
 }
 
 .hero h1 {
-    font-size: 3.35rem;
-    font-weight: 800;
-    line-height: 1.12;
+    font-size: 3.45rem;
+    font-weight: 700;
+    line-height: 1.1;
     margin-bottom: 1.25rem;
-    letter-spacing: -0.5px;
 }
 
 .hero p {
@@ -141,18 +145,17 @@ nav a:hover {
     border: none;
     cursor: pointer;
     font-size: 1rem;
-    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    transition: background 0.2s, transform 0.15s;
     display: inline-block;
 }
 
 .btn-primary:hover {
     background: #4338ca;
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(79, 70, 229, 0.35);
 }
 
 .btn-secondary {
-    background: rgba(19, 14, 97, 0.45);
+    background: rgba(19, 14, 97, 0.5);
     color: #ffffff;
     padding: 0.9rem 1.85rem;
     border-radius: 6px;
@@ -163,7 +166,7 @@ nav a:hover {
 }
 
 .btn-secondary:hover {
-    background: rgba(19, 14, 97, 0.75);
+    background: rgba(19, 14, 97, 0.8);
 }
 
 /* Sections */
@@ -172,15 +175,15 @@ nav a:hover {
 }
 
 .dark-alt {
-    background-color: rgba(13, 10, 66, 0.55);
-    border-top: 1px solid rgba(99, 102, 241, 0.16);
-    border-bottom: 1px solid rgba(99, 102, 241, 0.16);
+    background-color: rgba(13, 10, 66, 0.65);
+    border-top: 1px solid rgba(99, 102, 241, 0.18);
+    border-bottom: 1px solid rgba(99, 102, 241, 0.18);
 }
 
 .section h2 {
     text-align: center;
-    font-size: 2.35rem;
-    font-weight: 800;
+    font-size: 2.4rem;
+    font-weight: 700;
     margin-bottom: 0.5rem;
 }
 
@@ -201,7 +204,7 @@ nav a:hover {
 .photo-card {
     overflow: hidden;
     border-radius: 10px;
-    border: 1px solid rgba(99, 102, 241, 0.25);
+    border: 1px solid rgba(99, 102, 241, 0.28);
     background: #0e0b42;
     aspect-ratio: 16 / 10;
     cursor: zoom-in;
@@ -229,9 +232,8 @@ nav a:hover {
 }
 
 .service-card {
-    background: rgba(14, 11, 66, 0.72);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(99, 102, 241, 0.22);
+    background: rgba(14, 11, 66, 0.85);
+    border: 1px solid rgba(99, 102, 241, 0.24);
     border-radius: 12px;
     padding: 2.25rem;
     position: relative;
@@ -241,8 +243,7 @@ nav a:hover {
 
 .service-card.featured {
     border: 1px solid #6366f1;
-    background: rgba(19, 14, 97, 0.85);
-    box-shadow: 0 12px 32px rgba(9, 7, 46, 0.6);
+    background: rgba(19, 14, 97, 0.92);
 }
 
 .badge {
@@ -327,7 +328,7 @@ nav a:hover {
 
 .contact-form input,
 .contact-form textarea {
-    background: rgba(14, 11, 66, 0.75);
+    background: rgba(14, 11, 66, 0.85);
     border: 1px solid rgba(99, 102, 241, 0.28);
     padding: 1rem;
     border-radius: 6px;
@@ -347,7 +348,7 @@ footer {
     padding: 2.5rem;
     color: #8489a8;
     font-size: 0.9rem;
-    border-top: 1px solid rgba(99, 102, 241, 0.16);
+    border-top: 1px solid rgba(99, 102, 241, 0.18);
 }
 
 /* Lightbox Overlay */
@@ -355,7 +356,6 @@ footer {
     position: fixed;
     inset: 0;
     background: rgba(5, 4, 24, 0.92);
-    backdrop-filter: blur(8px);
     display: none;
     justify-content: center;
     align-items: center;
@@ -372,7 +372,6 @@ footer {
     max-height: 88vh;
     border-radius: 8px;
     border: 1px solid rgba(99, 102, 241, 0.4);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.75);
 }
 
 .lightbox-close {

@@ -11,7 +11,7 @@ html {
 }
 
 body {
-    background-color: #080626;
+    background-color: #070521;
     color: #f3f4f6;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     line-height: 1.6;
@@ -25,32 +25,54 @@ h1, h2, h3, .logo {
     letter-spacing: -0.02em;
 }
 
-/* Lightweight Background Effects: Zero-Lag Tiger Stripes & Static Grain */
+/* Pure CSS Zero-Lag Tiger Stripes & Fine Grain */
 .bg-effects {
     position: fixed;
     inset: 0;
     pointer-events: none;
-    z-index: -1;
-    will-change: transform;
+    z-index: 0;
 }
 
 .tiger-stripes {
     position: absolute;
     inset: 0;
-    opacity: 0.65;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' width='360' height='360' viewBox='0 0 360 360'%3E%3Cpath d='M-20 35 Q 90 10, 175 50 T 380 25 L 380 58 Q 250 82, 165 40 T -20 65 Z' fill='%2318127a'/%3E%3Cpath d='M-20 125 Q 110 160, 205 115 T 380 140 L 380 175 Q 230 145, 135 180 T -20 155 Z' fill='%2321199e'/%3E%3Cpath d='M-20 225 Q 85 195, 185 235 T 380 210 L 380 242 Q 260 270, 155 225 T -20 255 Z' fill='%2318127a'/%3E%3Cpath d='M-20 310 Q 120 340, 225 300 T 380 320 L 380 350 Q 240 320, 130 350 T -20 338 Z' fill='%2321199e'/%3E%3C/svg%3E");
-    background-size: 380px 380px;
-    -webkit-mask-image: radial-gradient(ellipse at center, transparent 28%, rgba(0, 0, 0, 0.45) 62%, black 100%);
-    mask-image: radial-gradient(ellipse at center, transparent 28%, rgba(0, 0, 0, 0.45) 62%, black 100%);
+    opacity: 0.75;
+    background:
+        repeating-radial-gradient(
+            circle at -10% 20%,
+            transparent 0,
+            transparent 28px,
+            rgba(32, 24, 158, 0.45) 29px,
+            rgba(19, 14, 97, 0.85) 44px,
+            transparent 46px,
+            transparent 85px
+        ),
+        repeating-radial-gradient(
+            circle at 110% 75%,
+            transparent 0,
+            transparent 32px,
+            rgba(32, 24, 158, 0.45) 33px,
+            rgba(19, 14, 97, 0.85) 48px,
+            transparent 50px,
+            transparent 90px
+        );
+    /* Fades cleanly out in the center so text stays 100% readable */
+    -webkit-mask-image: radial-gradient(ellipse at center, transparent 32%, rgba(0, 0, 0, 0.5) 65%, black 100%);
+    mask-image: radial-gradient(ellipse at center, transparent 32%, rgba(0, 0, 0, 0.5) 65%, black 100%);
 }
 
 .grain-overlay {
     position: absolute;
     inset: 0;
-    opacity: 0.045;
-    background-image: radial-gradient(#ffffff 0.75px, transparent 0.75px), radial-gradient(#a5b4fc 0.75px, #080626 0.75px);
-    background-size: 24px 24px;
-    background-position: 0 0, 12px 12px;
+    opacity: 0.06;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.8) 0.75px, transparent 0.75px);
+    background-size: 16px 16px;
+}
+
+/* Keep all site content cleanly above the background layer */
+.navbar, .hero, .section, footer {
+    position: relative;
+    z-index: 1;
 }
 
 /* Navbar */
@@ -59,12 +81,12 @@ h1, h2, h3, .logo {
     justify-content: space-between;
     align-items: center;
     padding: 1.4rem 8%;
-    background: rgba(8, 6, 38, 0.88);
+    background: rgba(7, 5, 33, 0.85);
     backdrop-filter: blur(8px);
     position: sticky;
     top: 0;
     z-index: 100;
-    border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+    border-bottom: 1px solid rgba(99, 102, 241, 0.22);
 }
 
 .logo {
@@ -103,11 +125,10 @@ nav a:hover {
     background: #4338ca;
 }
 
-/* Hero */
+/* Hero (Transparent background so edge tiger stripes show through) */
 .hero {
     padding: 7.5rem 8% 6.5rem;
     text-align: center;
-    background: radial-gradient(circle at top, rgba(24, 18, 122, 0.45) 0%, transparent 72%);
 }
 
 .hero-content {
@@ -155,7 +176,7 @@ nav a:hover {
 }
 
 .btn-secondary {
-    background: rgba(19, 14, 97, 0.5);
+    background: rgba(19, 14, 97, 0.55);
     color: #ffffff;
     padding: 0.9rem 1.85rem;
     border-radius: 6px;
@@ -166,7 +187,7 @@ nav a:hover {
 }
 
 .btn-secondary:hover {
-    background: rgba(19, 14, 97, 0.8);
+    background: rgba(19, 14, 97, 0.85);
 }
 
 /* Sections */
@@ -175,7 +196,7 @@ nav a:hover {
 }
 
 .dark-alt {
-    background-color: rgba(13, 10, 66, 0.65);
+    background-color: rgba(13, 10, 66, 0.55);
     border-top: 1px solid rgba(99, 102, 241, 0.18);
     border-bottom: 1px solid rgba(99, 102, 241, 0.18);
 }

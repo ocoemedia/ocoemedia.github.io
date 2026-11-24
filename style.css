@@ -17,12 +17,12 @@ body {
     overflow-x: hidden;
 }
 
-h1, h2, h3, .logo {
+h1, h2, h3 {
     font-family: 'Syne', sans-serif !important;
     letter-spacing: -0.02em;
 }
 
-/* Faint Architectural Blueprint Grid */
+/* Faint Architectural Blueprint Grid + Edge Vignette */
 .blueprint-grid {
     position: fixed;
     inset: 0;
@@ -32,8 +32,14 @@ h1, h2, h3, .logo {
         linear-gradient(to right, rgba(30, 101, 109, 0.16) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(30, 101, 109, 0.16) 1px, transparent 1px);
     background-size: 64px 64px;
-    -webkit-mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.85) 35%, transparent 95%);
-    mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.85) 35%, transparent 95%);
+}
+
+.vignette-overlay {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background: radial-gradient(ellipse at center, transparent 42%, rgba(0, 16, 24, 0.82) 100%);
 }
 
 .navbar, .hero, .section, footer {
@@ -53,28 +59,32 @@ h1, h2, h3, .logo {
     transform: translateY(0);
 }
 
-/* Navbar */
+/* Navbar & Custom Bungee Wordmark (oliver coe MEDIA) */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1.35rem 8%;
-    background: rgba(0, 41, 60, 0.92);
+    background: rgba(0, 29, 43, 0.88);
     backdrop-filter: blur(10px);
     position: sticky;
     top: 0;
     z-index: 100;
-    border-bottom: 1px solid rgba(30, 101, 109, 0.5);
+    border-bottom: 2px solid rgba(30, 101, 109, 0.55);
 }
 
 .logo {
-    font-size: 1.3rem;
-    font-weight: 800;
+    font-family: 'Bungee', sans-serif !important;
+    font-size: 1.35rem;
+    letter-spacing: 0.5px;
     color: #F1F3CE;
+    text-transform: lowercase;
 }
 
 .logo span {
+    font-family: 'Bungee', sans-serif !important;
     color: #F62A00;
+    text-transform: uppercase;
 }
 
 nav {
@@ -84,7 +94,7 @@ nav {
 }
 
 nav a {
-    color: rgba(241, 243, 206, 0.82);
+    color: rgba(241, 243, 206, 0.85);
     text-decoration: none;
     font-size: 0.95rem;
     font-weight: 500;
@@ -104,31 +114,47 @@ nav a:hover {
     white-space: nowrap;
 }
 
-/* Asymmetric Studio Split Hero */
+/* Centered Monumental Hero (Tighter Spacing, Larger Title, Thick Corner Brackets) */
 .hero {
-    padding: 5.5rem 8% 5rem;
-    max-width: 1380px;
-    margin: 0 auto;
+    padding: 4rem 8% 2.5rem;
 }
 
-.hero-split {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 3.5rem;
-    align-items: center;
+.hero-frame {
+    position: relative;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 3.75rem 2.5rem;
+    text-align: center;
+    background: linear-gradient(165deg, rgba(30, 101, 109, 0.22) 0%, rgba(0, 31, 46, 0.78) 100%);
+    border: 2px solid rgba(30, 101, 109, 0.55);
+    border-radius: 4px;
 }
+
+.corner {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-color: #F62A00;
+    border-style: solid;
+    pointer-events: none;
+}
+
+.corner.tl { top: -2px; left: -2px; border-width: 3px 0 0 3px; }
+.corner.tr { top: -2px; right: -2px; border-width: 3px 3px 0 0; }
+.corner.bl { bottom: -2px; left: -2px; border-width: 0 0 3px 3px; }
+.corner.br { bottom: -2px; right: -2px; border-width: 0 3px 3px 0; }
 
 .status-badge {
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
-    background: rgba(0, 29, 43, 0.85);
+    background: rgba(0, 21, 31, 0.88);
     border: 1px solid rgba(30, 101, 109, 0.7);
     padding: 0.45rem 1rem;
     border-radius: 50px;
     margin-bottom: 1.5rem;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.74rem;
+    font-size: 0.75rem;
     color: #F1F3CE;
 }
 
@@ -146,23 +172,24 @@ nav a:hover {
     100% { box-shadow: 0 0 0 0 rgba(246, 42, 0, 0); }
 }
 
-.hero-left h1 {
-    font-size: 3.35rem;
+.hero h1 {
+    font-size: 4.1rem;
     font-weight: 800;
-    line-height: 1.08;
+    line-height: 1.06;
     margin-bottom: 1.25rem;
     color: #F1F3CE;
 }
 
-.hero-left p {
-    font-size: 1.12rem;
-    color: rgba(241, 243, 206, 0.82);
-    margin-bottom: 2.15rem;
-    max-width: 540px;
+.hero p {
+    font-size: 1.15rem;
+    color: rgba(241, 243, 206, 0.84);
+    max-width: 680px;
+    margin: 0 auto 2.15rem;
 }
 
 .hero-buttons {
     display: flex;
+    justify-content: center;
     gap: 1rem;
     flex-wrap: wrap;
 }
@@ -170,7 +197,7 @@ nav a:hover {
 .btn-primary {
     background: #F62A00;
     color: #F1F3CE;
-    padding: 0.9rem 1.8rem;
+    padding: 0.9rem 1.85rem;
     border-radius: 6px;
     text-decoration: none;
     font-weight: 700;
@@ -187,70 +214,28 @@ nav a:hover {
 }
 
 .btn-secondary {
-    background: rgba(30, 101, 109, 0.25);
+    background: rgba(30, 101, 109, 0.28);
     color: #F1F3CE;
-    padding: 0.9rem 1.8rem;
+    padding: 0.9rem 1.85rem;
     border-radius: 6px;
     text-decoration: none;
     font-weight: 600;
-    border: 1px solid rgba(30, 101, 109, 0.75);
-}
-
-/* Right Viewfinder Hero Card */
-.viewfinder-card {
-    position: relative;
-    background: rgba(0, 31, 46, 0.85);
-    border: 1px solid rgba(30, 101, 109, 0.65);
-    padding: 1rem;
-    border-radius: 6px;
-}
-
-.corner {
-    position: absolute;
-    width: 14px;
-    height: 14px;
-    border-color: #F62A00;
-    border-style: solid;
-}
-
-.corner.tl { top: -2px; left: -2px; border-width: 2px 0 0 2px; }
-.corner.tr { top: -2px; right: -2px; border-width: 2px 2px 0 0; }
-.corner.bl { bottom: -2px; left: -2px; border-width: 0 0 2px 2px; }
-.corner.br { bottom: -2px; right: -2px; border-width: 0 2px 2px 0; }
-
-.vf-top, .vf-bottom {
-    display: flex;
-    justify-content: space-between;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.72rem;
-    color: rgba(241, 243, 206, 0.75);
-}
-
-.vf-top { margin-bottom: 0.75rem; }
-.vf-bottom { margin-top: 0.75rem; }
-.rec-tag { color: #F62A00; font-weight: 700; }
-
-.viewfinder-card img {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    border-radius: 4px;
-    display: block;
+    border: 2px solid rgba(30, 101, 109, 0.8);
 }
 /* Sections */
 .section {
-    padding: 5.5rem 8%;
+    padding: 4.5rem 8%;
 }
 
 .peacock-band {
     background: linear-gradient(180deg, rgba(30, 101, 109, 0.24) 0%, rgba(0, 31, 46, 0.88) 100%);
-    border-top: 1px solid rgba(30, 101, 109, 0.45);
-    border-bottom: 1px solid rgba(30, 101, 109, 0.45);
+    border-top: 2px solid rgba(30, 101, 109, 0.5);
+    border-bottom: 2px solid rgba(30, 101, 109, 0.5);
 }
 
 .section-head {
     text-align: center;
-    margin-bottom: 3.5rem;
+    margin-bottom: 3rem;
 }
 
 .mono-tag {
@@ -264,18 +249,18 @@ nav a:hover {
 }
 
 .section h2 {
-    font-size: 2.45rem;
+    font-size: 2.55rem;
     font-weight: 800;
     margin-bottom: 0.5rem;
     color: #F1F3CE;
 }
 
 .section-sub {
-    color: rgba(241, 243, 206, 0.75);
+    color: rgba(241, 243, 206, 0.78);
     font-size: 1.05rem;
 }
 
-/* Exclusive Photo Grid */
+/* Exclusive Photo Grid (Thin Permanent #F62A00 Border -> Thickens on Hover) */
 .photo-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -285,15 +270,17 @@ nav a:hover {
 .photo-card {
     overflow: hidden;
     border-radius: 8px;
-    border: 1px solid rgba(30, 101, 109, 0.55);
+    border: 1px solid rgba(246, 42, 0, 0.55);
+    box-shadow: 0 0 0 0 #F62A00;
     background: #001d2b;
     aspect-ratio: 16 / 10;
     cursor: zoom-in;
-    transition: border-color 0.25s ease, transform 0.25s ease;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 }
 
 .photo-card:hover {
     border-color: #F62A00;
+    box-shadow: 0 0 0 2.5px #F62A00;
     transform: translateY(-3px);
 }
 
@@ -319,8 +306,8 @@ nav a:hover {
 }
 
 .web-card {
-    background: rgba(0, 31, 46, 0.85);
-    border: 1px solid rgba(30, 101, 109, 0.55);
+    background: rgba(0, 31, 46, 0.88);
+    border: 2px solid rgba(30, 101, 109, 0.6);
     border-radius: 10px;
     overflow: hidden;
     display: flex;
@@ -338,7 +325,7 @@ nav a:hover {
     height: 320px;
     background: #001824;
     overflow: hidden;
-    border-bottom: 1px solid rgba(30, 101, 109, 0.45);
+    border-bottom: 2px solid rgba(30, 101, 109, 0.5);
 }
 
 .web-preview img {
@@ -379,7 +366,7 @@ nav a:hover {
 }
 
 .web-info p {
-    color: rgba(241, 243, 206, 0.78);
+    color: rgba(241, 243, 206, 0.8);
     font-size: 0.96rem;
     margin-bottom: 1.5rem;
 }
@@ -394,8 +381,8 @@ nav a:hover {
 }
 
 .service-card {
-    background: rgba(0, 31, 46, 0.88);
-    border: 1px solid rgba(30, 101, 109, 0.55);
+    background: rgba(0, 31, 46, 0.9);
+    border: 2px solid rgba(30, 101, 109, 0.6);
     border-radius: 10px;
     padding: 2.25rem;
     position: relative;
@@ -406,17 +393,17 @@ nav a:hover {
 
 .service-card:hover {
     transform: translateY(-4px);
-    border-color: rgba(241, 243, 206, 0.45);
+    border-color: rgba(241, 243, 206, 0.5);
 }
 
 .service-card.featured {
-    border: 1.5px solid #F62A00;
-    background: linear-gradient(165deg, rgba(30, 101, 109, 0.35) 0%, rgba(0, 31, 46, 0.95) 100%);
+    border: 3px solid #F62A00;
+    background: linear-gradient(165deg, rgba(30, 101, 109, 0.38) 0%, rgba(0, 31, 46, 0.96) 100%);
 }
 
 .badge {
     position: absolute;
-    top: -12px;
+    top: -13px;
     right: 20px;
     background: #F62A00;
     color: #F1F3CE;
@@ -472,7 +459,7 @@ nav a:hover {
 .btn-outline {
     text-align: center;
     padding: 0.85rem;
-    border: 1px solid rgba(30, 101, 109, 0.8);
+    border: 2px solid rgba(30, 101, 109, 0.85);
     color: #F1F3CE;
     text-decoration: none;
     border-radius: 6px;
@@ -481,7 +468,7 @@ nav a:hover {
 }
 
 .btn-outline:hover {
-    background: rgba(30, 101, 109, 0.35);
+    background: rgba(30, 101, 109, 0.38);
     border-color: #F1F3CE;
 }
 
@@ -499,8 +486,8 @@ nav a:hover {
 
 .contact-form input,
 .contact-form textarea {
-    background: rgba(0, 31, 46, 0.9);
-    border: 1px solid rgba(30, 101, 109, 0.65);
+    background: rgba(0, 31, 46, 0.92);
+    border: 2px solid rgba(30, 101, 109, 0.7);
     padding: 1rem;
     border-radius: 6px;
     color: #F1F3CE;
@@ -526,9 +513,9 @@ nav a:hover {
 footer {
     text-align: center;
     padding: 2.5rem;
-    color: rgba(241, 243, 206, 0.6);
+    color: rgba(241, 243, 206, 0.65);
     font-size: 0.9rem;
-    border-top: 1px solid rgba(30, 101, 109, 0.4);
+    border-top: 2px solid rgba(30, 101, 109, 0.45);
 }
 
 /* Lightbox Overlay */
@@ -551,7 +538,7 @@ footer {
     max-width: 92vw;
     max-height: 88vh;
     border-radius: 6px;
-    border: 1px solid #1E656D;
+    border: 2px solid #F62A00;
 }
 
 .lightbox-close {
@@ -565,16 +552,12 @@ footer {
 }
 
 /* Mobile Adjustments */
-@media (max-width: 850px) {
-    .hero-split {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-    }
+@media (max-width: 768px) {
     .navbar {
         padding: 1rem 5%;
     }
     .logo {
-        font-size: 1.05rem;
+        font-size: 1.1rem;
     }
     nav a:not(.btn-nav) {
         display: none;
@@ -584,9 +567,12 @@ footer {
         font-size: 0.85rem;
     }
     .hero {
-        padding: 3.5rem 5% 3rem;
+        padding: 3rem 5% 2rem;
     }
-    .hero-left h1 {
-        font-size: 2.35rem;
+    .hero-frame {
+        padding: 2.5rem 1.35rem;
+    }
+    .hero h1 {
+        font-size: 2.45rem;
     }
 }

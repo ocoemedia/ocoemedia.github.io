@@ -76,16 +76,43 @@ h1, h2, h3 {
 }
 
 
-.logo {
-    font-family: 'Bungee', sans-serif !important;
-    font-size: 1.35rem;
-    letter-spacing: 0.5px;
-    color: #F1F3CE;
-    text-transform: lowercase;
+.logo-lockup {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    text-decoration: none;
 }
 
-.logo span {
-    font-family: 'Bungee', sans-serif !important;
+.lens-mark {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lens-rec-dot {
+    position: absolute;
+    top: -2px;
+    right: -3px;
+    width: 8px;
+    height: 8px;
+    background-color: #F62A00;
+    border-radius: 50%;
+    animation: pulse-ring 2s infinite;
+}
+
+.logo-text {
+    font-family: 'Syne', sans-serif !important;
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: #F1F3CE;
+    text-transform: uppercase;
+}
+
+.logo-text span {
+    font-family: 'Syne', sans-serif !important;
+    font-style: italic;
     color: #F62A00;
     text-transform: uppercase;
 }

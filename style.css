@@ -585,6 +585,43 @@ footer {
     font-size: 0.9rem;
     border-top: 2px solid rgba(30, 101, 109, 0.45);
 }
+.ig-link {
+    display: inline-flex;
+    align-items: center;
+    color: #F1F3CE;
+    transition: color 0.2s, transform 0.15s;
+}
+
+.ig-link:hover {
+    color: #F62A00;
+    transform: translateY(-1px);
+}
+
+.footer-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.footer-ig {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: #F1F3CE;
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    padding: 0.4rem 0.9rem;
+    border: 1px solid rgba(30, 101, 109, 0.7);
+    border-radius: 50px;
+    transition: border-color 0.2s, color 0.2s;
+}
+
+.footer-ig:hover {
+    border-color: #F62A00;
+    color: #F62A00;
+}
 
 /* Lightbox Overlay */
 .lightbox {

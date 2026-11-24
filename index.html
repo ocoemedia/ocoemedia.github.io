@@ -112,3 +112,121 @@
                     <p>Daylight layout with split-screen framing, seasonal specimen cards, and simple inquiry routing.</p>
                     <a href="./botanical-nursery-demo/" target="_blank" class="btn-primary">Launch Live Demo →</a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services & Packages with Scratched-Out Standard Rates + Asterisk Note -->
+    <section id="services" class="section peacock-band reveal">
+        <div class="section-head">
+            <span class="mono-tag">[ 03 // STUDIO PACKAGES ]</span>
+            <h2>Services &amp; Launch Rates</h2>
+            <p class="section-sub">Discounted starter rates while I build out new client reviews.</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Custom Website</h3>
+                <div class="old-price"><span>$850</span></div>
+                <div class="price">$250<sup class="asterisk">*</sup> <span>Launch Rate</span></div>
+                <ul>
+                    <li>Clean, mobile-first custom build</li>
+                    <li>Fast load speeds &amp; zero platform ads</li>
+                    <li>Direct lead-capture form routing</li>
+                    <li>Delivered in 5–7 days</li>
+                </ul>
+                <a href="#contact" class="btn-outline">Select Package</a>
+            </div>
+
+            <div class="service-card featured">
+                <div class="badge">MOST POPULAR</div>
+                <h3>Full Digital Overhaul</h3>
+                <div class="old-price"><span>$1,200</span></div>
+                <div class="price">$350<sup class="asterisk">*</sup> <span>Launch Rate</span></div>
+                <ul>
+                    <li>Everything in Custom Website</li>
+                    <li>On-location commercial photo shoot</li>
+                    <li>Edited high-res web &amp; social assets</li>
+                    <li>Complete visual brand refresh</li>
+                </ul>
+                <a href="#contact" class="btn-primary">Select Package</a>
+            </div>
+
+            <div class="service-card">
+                <h3>Commercial Shoot</h3>
+                <div class="old-price"><span>$300</span></div>
+                <div class="price">$150<sup class="asterisk">*</sup> <span>Starting</span></div>
+                <ul>
+                    <li>On-site product, team, or space shoot</li>
+                    <li>Professional color grading &amp; retouching</li>
+                    <li>Full commercial usage rights</li>
+                    <li>48-hour gallery turnaround</li>
+                </ul>
+                <a href="#contact" class="btn-outline">Select Package</a>
+            </div>
+        </div>
+
+        <p class="price-footnote"><span class="asterisk">*</span> Discounted starter rates are only available for my first 2 clients in exchange for an honest review—standard studio pricing applies once both spots are filled.</p>
+    </section>
+
+    <!-- Direct Inquiry Form -->
+    <section id="contact" class="section contact-section reveal">
+        <div class="section-head">
+            <span class="mono-tag">[ 04 // START A PROJECT ]</span>
+            <h2>Ready to Upgrade Your Brand?</h2>
+            <p class="section-sub">Send over a quick note about your business and what you need. I'll get back to you within 24 hours.</p>
+        </div>
+
+        <form class="contact-form" action="https://formsubmit.co" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="text" name="business" placeholder="Business Name / Instagram (Optional)">
+            <textarea name="message" rows="4" placeholder="What are we building? (e.g., New website, photo shoot, full package)" required></textarea>
+            <button type="submit" class="btn-primary">Send Inquiry</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 OCOE Media &bull; Custom-Built from Scratch</p>
+    </footer>
+
+    <!-- Fullscreen Photo Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="Expanded photography preview">
+    </div>
+
+    <script>
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeBtn = document.querySelector('.lightbox-close');
+
+        document.querySelectorAll('.photo-card img').forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                lightbox.classList.add('active');
+            });
+        });
+
+        closeBtn.addEventListener('click', () => lightbox.classList.remove('active'));
+        lightbox.addEventListener('click', (e) => {
+            if (e.target !== lightboxImg) lightbox.classList.remove('active');
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') lightbox.classList.remove('active');
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>

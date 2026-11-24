@@ -426,6 +426,110 @@ nav a:hover {
 
 .contact-form input,
 .contact-form textarea {
+    background: rgba(0, 31, 46, 0.9);
+    border: 1px solid rgba(30, 101, 109, 0.65);
+    padding: 1rem;
+    border-radius: 6px;
+    color: #F1F3CE;
+    font-size: 1rem;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #F62A00;
+}
+
+.contact-form input:-webkit-autofill,
+.contact-form input:-webkit-autofill:hover,
+.contact-form input:-webkit-autofill:focus,
+.contact-form textarea:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px #001f2e inset !important;
+    -webkit-text-fill-color: #F1F3CE !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2.5rem;
+    color: rgba(241, 243, 206, 0.6);
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(30, 101, 109, 0.4);
+}
+
+/* Lightbox Overlay */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 21, 31, 0.94);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 2rem;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox img {
+    max-width: 92vw;
+    max-height: 88vh;
+    border-radius: 6px;
+    border: 1px solid #1E656D;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 2.2rem;
+    font-size: 2.5rem;
+    color: #F1F3CE;
+    cursor: pointer;
+    line-height: 1;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem 5%;
+    }
+    .logo {
+        font-size: 1.05rem;
+    }
+    nav a:not(.btn-nav) {
+        display: none;
+    }
+    .btn-nav {
+        padding: 0.5rem 0.9rem;
+        font-size: 0.85rem;
+    }
+    .hero {
+        padding: 4.5rem 5% 3.5rem;
+    }
+    .hero-frame {
+        padding: 2.75rem 1.4rem;
+    }
+    .hero h1 {
+        font-size: 2.25rem;
+    }
+}
+
+.contact-section {
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
     background: rgba(14, 11, 66, 0.85);
     border: 1px solid rgba(99, 102, 241, 0.28);
     padding: 1rem;

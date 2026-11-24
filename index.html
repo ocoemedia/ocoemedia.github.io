@@ -3,55 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oliver Coe Media | Web Design & Commercial Photography</title>
+    <title>Oliver Coe Media | Custom Web Architecture & Commercial Photography</title>
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="bg-effects">
-        <div class="tiger-stripes"></div>
-        <div class="grain-overlay"></div>
-    </div>
+    <!-- Architectural Blueprint Grid Overlay -->
+    <div class="blueprint-grid"></div>
 
     <header class="navbar">
         <div class="logo">OLIVER COE <span>MEDIA</span></div>
         <nav>
-            <a href="#work">Work</a>
-            <a href="#services">Services</a>
+            <a href="#work">Photography</a>
+            <a href="#websites">Web Builds</a>
+            <a href="#services">Packages</a>
             <a href="#contact" class="btn-nav">Start a Project</a>
         </nav>
     </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Websites & Visuals That Turn Visitors Into Customers.</h1>
-            <p>High-converting custom websites and crisp commercial photography built for businesses ready to look the part and grow.</p>
+    <section class="hero reveal">
+        <div class="hero-frame">
+            <span class="corner tl"></span>
+            <span class="corner tr"></span>
+            <span class="corner bl"></span>
+            <span class="corner br"></span>
+
+            <div class="status-badge">
+                <span class="pulse-dot"></span>
+                <span>[ WEST LINN / PDX &bull; ACCEPTING NEW BUILDS ]</span>
+            </div>
+
+            <h1>Websites &amp; Visuals Engineered to Convert.</h1>
+            <p>Bespoke, zero-bloat websites and crisp commercial photography built for brands ready to stand apart and grow.</p>
+
             <div class="hero-buttons">
                 <a href="#contact" class="btn-primary">Book a Free Quote</a>
-                <a href="#work" class="btn-secondary">View Portfolio</a>
+                <a href="#websites" class="btn-secondary">Inspect Web Builds</a>
             </div>
         </div>
     </section>
 
-    <section id="work" class="section">
-        <h2>Selected Photography</h2>
-        <p class="section-sub">Commercial, automotive, and editorial visuals shot on location. Click any frame to expand.</p>
+    <!-- Exclusive Photography Grid (Zero Overlap with Demos) -->
+    <section id="work" class="section reveal">
+        <div class="section-head">
+            <span class="mono-tag">[ 01 // COMMERCIAL &amp; EDITORIAL ARCHIVE ]</span>
+            <h2>Selected Photography</h2>
+            <p class="section-sub">Shot on location. Click any frame to inspect full-resolution detail.</p>
+        </div>
+
         <div class="photo-grid">
-            <div class="photo-card"><img src="ojc_photostory_yellow%20plane.jpg" alt="Yellow vintage aircraft"></div>
-            <div class="photo-card"><img src="ojc_moto_indian%20logo.jpg" alt="Indian Motorcycle chrome detail"></div>
-            <div class="photo-card"><img src="ojc_moto_lets%20ride.jpg" alt="Motorcycle cockpit lighting"></div>
-            <div class="photo-card"><img src="ojc_photostory_a10%20gun.jpg" alt="A-10 aircraft mechanical detail"></div>
-            <div class="photo-card"><img src="ojc_moto_bike.jpg" alt="Custom motorcycle profile"></div>
-            <div class="photo-card"><img src="ojc_moto_bmw.jpg" alt="BMW motorcycle headlight detail"></div>
+            <div class="photo-card"><img src="ojc_photostory_ball%20thing.jpg" alt="FLIR optical sensor pod reflection"></div>
+            <div class="photo-card"><img src="ojc_photostory_control%20panel.jpg" alt="Aviation cockpit instrument array"></div>
+            <div class="photo-card"><img src="ojc_photostory_outside%20jet.jpg" alt="Camouflage fighter aircraft tail section"></div>
+            <div class="photo-card"><img src="ojc_photostory_pamphlets.jpg" alt="Pacific Northwest tourism editorial display"></div>
+            <div class="photo-card"><img src="ojc_photostory_missle.jpg" alt="Optical seeker head shallow depth of field"></div>
+            <div class="photo-card"><img src="ojc_photostory_yellow%20plane.jpg" alt="Vintage yellow aircraft profile"></div>
         </div>
     </section>
 
-              <section id="websites" class="section">
-        <h2>Selected Web Builds</h2>
-        <p class="section-sub">Custom-coded, mobile-responsive websites built for speed and conversions.</p>
+    <!-- Live Concept Web Builds -->
+    <section id="websites" class="section reveal">
+        <div class="section-head">
+            <span class="mono-tag">[ 02 // LIVE WEB ARCHITECTURE ]</span>
+            <h2>Selected Web Builds</h2>
+            <p class="section-sub">Custom-coded, mobile-responsive websites engineered for speed and clarity.</p>
+        </div>
+
         <div class="web-grid">
             <div class="web-card">
                 <div class="web-preview">
@@ -79,22 +99,27 @@
         </div>
     </section>
 
+    <!-- Services & Packages -->
+    <section id="services" class="section peacock-band reveal">
+        <div class="section-head">
+            <span class="mono-tag">[ 03 // STUDIO PACKAGES ]</span>
+            <h2>Services &amp; Launch Rates</h2>
+            <p class="section-sub">Introductory launch rates available for my next 2 clients in exchange for a review.</p>
+        </div>
 
-    <section id="services" class="section dark-alt">
-        <h2>Services & Packages</h2>
-        <p class="section-sub">Launch rates available for my next 2 online clients in exchange for a review.</p>
         <div class="services-grid">
             <div class="service-card">
                 <h3>Custom Website</h3>
                 <div class="price">$250 <span>Launch Rate</span></div>
                 <ul>
                     <li>Clean, mobile-first custom build</li>
-                    <li>Fast load speeds & zero platform ads</li>
-                    <li>Contact & lead capture setup</li>
+                    <li>Instant load speeds &amp; zero platform ads</li>
+                    <li>Direct lead-capture form routing</li>
                     <li>Delivered in 5–7 days</li>
                 </ul>
                 <a href="#contact" class="btn-outline">Select Package</a>
             </div>
+
             <div class="service-card featured">
                 <div class="badge">MOST POPULAR</div>
                 <h3>Full Digital Overhaul</h3>
@@ -102,17 +127,18 @@
                 <ul>
                     <li>Everything in Custom Website</li>
                     <li>On-location commercial photo shoot</li>
-                    <li>Edited high-res web & social assets</li>
-                    <li>Complete brand refresh</li>
+                    <li>Edited high-res web &amp; social assets</li>
+                    <li>Complete visual brand refresh</li>
                 </ul>
                 <a href="#contact" class="btn-primary">Select Package</a>
             </div>
+
             <div class="service-card">
                 <h3>Commercial Shoot</h3>
                 <div class="price">$150 <span>Starting</span></div>
                 <ul>
                     <li>On-site product, team, or space shoot</li>
-                    <li>Professional color grading & retouching</li>
+                    <li>Professional color grading &amp; retouching</li>
                     <li>Full commercial usage rights</li>
                     <li>48-hour gallery turnaround</li>
                 </ul>
@@ -121,10 +147,15 @@
         </div>
     </section>
 
-    <section id="contact" class="section contact-section">
-        <h2>Ready to Upgrade Your Brand?</h2>
-        <p class="section-sub">Send over a quick note about your business and what you need. I'll get back to you within 24 hours.</p>
-        <form class="contact-form" action="https://formsubmit.co/olivercoemedia@gmail.com" method="POST">
+    <!-- Direct Inquiry Form -->
+    <section id="contact" class="section contact-section reveal">
+        <div class="section-head">
+            <span class="mono-tag">[ 04 // INITIALIZE PROJECT ]</span>
+            <h2>Ready to Upgrade Your Brand?</h2>
+            <p class="section-sub">Send over a quick note about your business and what you need. I'll respond within 24 hours.</p>
+        </div>
+
+        <form class="contact-form" action="https://formsubmit.co" method="POST">
             <input type="text" name="name" placeholder="Your Name" required>
             <input type="email" name="email" placeholder="Your Email" required>
             <input type="text" name="business" placeholder="Business Name / Instagram (Optional)">
@@ -134,7 +165,7 @@
     </section>
 
     <footer>
-        <p>&copy; 2026 Oliver Coe Media. Built from scratch.</p>
+        <p>&copy; 2026 Oliver Coe Media &bull; Custom-Engineered from Scratch</p>
     </footer>
 
     <!-- Fullscreen Photo Lightbox -->
@@ -144,6 +175,7 @@
     </div>
 
     <script>
+        // Lightbox Controls
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
         const closeBtn = document.querySelector('.lightbox-close');
@@ -163,6 +195,17 @@
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') lightbox.classList.remove('active');
         });
+
+        // Subtle GPU Scroll-Reveal Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
 
 </body>

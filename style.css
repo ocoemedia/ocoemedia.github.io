@@ -450,6 +450,44 @@ nav a:hover {
     margin-bottom: 0.5rem;
     color: #F1F3CE;
 }
+.old-price {
+    margin-bottom: 0.15rem;
+}
+
+.old-price span {
+    position: relative;
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: rgba(241, 243, 206, 0.55);
+}
+
+.old-price span::after {
+    content: "";
+    position: absolute;
+    left: -4px;
+    right: -4px;
+    top: 50%;
+    height: 3px;
+    background: #F62A00;
+    transform: rotate(-6deg);
+}
+
+.asterisk {
+    color: #F62A00;
+    font-weight: 800;
+}
+
+.price-footnote {
+    max-width: 780px;
+    margin: 2.25rem auto 0;
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    color: rgba(241, 243, 206, 0.78);
+    line-height: 1.5;
+}
 
 .price {
     font-size: 2.3rem;

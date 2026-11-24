@@ -10,7 +10,10 @@ html {
 }
 
 body {
+body {
     background-color: #00293C;
+    background-image: radial-gradient(ellipse at center, transparent 42%, rgba(0, 14, 22, 0.85) 100%);
+    background-attachment: fixed;
     color: #F1F3CE;
     line-height: 1.65;
     position: relative;
@@ -22,12 +25,14 @@ h1, h2, h3 {
     letter-spacing: -0.02em;
 }
 
-/* Faint Architectural Blueprint Grid + Edge Vignette */
+/* GPU-Locked Architectural Blueprint Grid */
 .blueprint-grid {
     position: fixed;
     inset: 0;
     pointer-events: none;
     z-index: 0;
+    transform: translateZ(0);
+    will-change: transform;
     background-image:
         linear-gradient(to right, rgba(30, 101, 109, 0.16) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(30, 101, 109, 0.16) 1px, transparent 1px);
@@ -35,11 +40,7 @@ h1, h2, h3 {
 }
 
 .vignette-overlay {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-    background: radial-gradient(ellipse at center, transparent 42%, rgba(0, 16, 24, 0.82) 100%);
+    display: none;
 }
 
 .navbar, .hero, .section, footer {
@@ -59,19 +60,19 @@ h1, h2, h3 {
     transform: translateY(0);
 }
 
-/* Navbar & Custom Bungee Wordmark (oliver coe MEDIA) */
+/* Navbar (Zero-Lag Solid Glass) */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1.35rem 8%;
-    background: rgba(0, 29, 43, 0.88);
-    backdrop-filter: blur(10px);
+    background: rgba(0, 29, 43, 0.96);
     position: sticky;
     top: 0;
     z-index: 100;
     border-bottom: 2px solid rgba(30, 101, 109, 0.55);
 }
+
 
 .logo {
     font-family: 'Bungee', sans-serif !important;
